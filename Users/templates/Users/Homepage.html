@@ -1,0 +1,173 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}Homepage{% endblock title %}
+{% block css %}
+  <link rel="stylesheet" href="{%static 'Users/HomePage.css'%}">
+{% endblock css %}
+
+{% block body %}
+
+<div class="navbar" >
+    <div class="logo">
+        <img src="{%static 'Users/images/Logo.jpg' %}" alt="Logo">
+    </div>
+    <div class="navigation-button">
+        
+                <button type="button">OverView</button>
+
+
+                <button type="button">Home</button>
+    
+        
+                <button type="button">Tree</button>
+        
+    
+                <button type="button">Memories</button>
+        
+        
+                <button type="button">Activities</button>
+        
+    
+                <button type="button">Search</button>
+
+    </div>
+
+    <div class="extraLinks">
+        <div class="border">
+            <div class="notification">
+                <img src="{% static 'Users/images/Bell.png' %}" alt="">
+            </div>
+        </div>
+            
+            <div class="border" >
+                <div class="notification">
+                 <img src="{% static 'Users/images/help.png' %}" alt="">
+               </div>
+            </div>
+            <div class="border-link" >
+                <div class="notification">
+              <a href="{% url 'login' %}">Sign In</a>
+              </div>
+           </div>
+            <div class="accountCreate-link" >
+                <div class="notification">
+              <a href="{% url 'registration' %}">Create Account</a>
+              </div>
+           </div>
+           
+    </div>
+</div>
+
+
+<div class="main-container">
+
+
+    <div class="Overview">
+
+        <div class="imageContainer">
+            <img src= "{%static 'Users/images/Family.jpg'%}" alt="Family">     
+        </div>
+         
+        <div class="textContainer">
+            <p>
+                Every person deserves to be remembered.
+
+                We help make that possible with the FamTree , the world's largest online family tree—home to information about more than 2 billion ancestors.
+                
+                The Family Tree offers users a free family tree template featuring multiple tree and fan chart views, timeline and mapping tools, record hints and research helps, and access to billions of online records.
+            </p>
+        </div>
+
+   </div>
+
+
+   <div class="procedure">
+        <div class="headerCard">
+            <div class="stepsHeader">
+                    <h1>How To Start A FamTree</h1>
+                    <h3>Creating a Famtree Account is easy and totally free!</h3>
+            </div>
+        </div>
+
+        <div class="card1">
+            <div class="imgCard1">
+                            <img src= "{%static 'Users/images/Card.svg'%}" alt="Card1">  
+            </div>
+            <div class="texCard1">
+                <div class="textCardContainer1"  >
+                    <h3>Step 1: Create A Free Account</h3>
+                    <p>Not only will you be able to start your family tree, but creating an account gives you access to FamilySearch's online records and the Memories storage feature.</p>
+                </div>
+            </div>
+           
+        </div>
+
+     
+        <div class="card2">
+            <div class="imgCard2">
+                            <img src= "{%static 'Users/images/Card2.svg'%}" alt="Card2">  
+            </div>
+            <div class="texCard2">
+                <div class="textCardContainer2"  >
+                    <h3>Step 2: Add What you know about your family</h3>
+                    <p>We recommend starting with the first four generations.<br>Know that FamilySearch protects the privacy of living <br>people—nobody else can see what you enter about yourself or other <br> living family members.</p>
+                </div>
+            </div>
+           
+        </div>
+
+        <div class="card3">
+            <div class="imgCard3">
+                    <img src= "{%static 'Users/images/Card3.svg'%}" alt="Card3">  
+            </div>
+            <div class="texCard3">
+                <div class="textCardContainer3"  >
+                    <h3>Step 3: Connect to FamilySearch's vast database of information.</h3>
+                    <p>Once you add a deceased relative to the tree, FamilySearch will try to connect you to any information it has about that person in its database. If it finds a match, FamilySearch can auto populate information, saving you a lot of time!</p></div>
+            </div>
+           
+        </div>
+
+        <div class="imgCardInfo" >
+            <img src="{% static 'Users/images/GrandParent&GrandSon.jpg' %}" alt="GrandParent and Grand Child">
+          
+            <div class="imageCardInfoText">
+                <h1>Why Use the <br> FamilySearch Shared <br>Tree?</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, hic molestiae? Consectetur nobis consequatur unde ab alias nihil repellat! <br>Ipsam deserunt rem, officia dolores dolor ab incidunt magni animi pariatur.
+                Consequatur laudantium ullam eos rem facere aliquam praesentium asperiores delectus  <br> blanditiis debitis totam nesciunt natus possimus eveniet cupiditate sint, quos beatae esse nihil. </p>
+            </div>
+        </div>
+
+        <div class="section4"  >
+                <div class="h3Tag"  >
+                        <h3>The World's Largest Shared Online Family Tree</h3>
+                </div>
+
+                <div class="p-tag" >
+                    <p>
+                        Those who start a Family Tree on FamilySearch aren't just piecing together their family story! <br> They're contributing to the creation of a global, unified family tree for mankind. <br> 
+<br>
+The FamilySearch shared tree uniquely strives to have just one public profile for every deceased person who has ever lived. Descendants contribute what they know about a person to a single, shared profile, rather than scattering their knowledge across multiple profiles on several trees, some of which may have privacy barriers.
+                    </p>
+                </div>
+
+        </div>       
+   </div>
+   <div class="startTrial"> 
+      <div class="headerCard">
+        <div class="stepsHeader">
+                <h1>Your very own FamTree</h1>
+                <h3>Stay Close & Stay Connected</h3>
+               <div class="button-class">
+                    <button class="button" ><a href="{% url 'login' %}">Start FamTree</a></button>
+                </div>  
+                 <p>or <span><a href="{% url 'registration' %}">sign in</a></span> if you already have an account</p>
+                    
+
+                   
+            
+        </div>
+      </div>
+   </div>  
+{% endblock body %}

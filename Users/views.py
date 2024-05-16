@@ -3,7 +3,10 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate , login 
+from django.contrib.auth.hashers import check_password
+from django.contrib.sessions.models import Session 
 from .models import Person
+from django.views.decorators.csrf import csrf_protect
 
 
 # from .models import Registration
@@ -62,28 +65,41 @@ def RegistrationView(request):
     return render(request, "Users/RegistrationPage.html")
 
 
-def LoginView(request): 
-    
-    if request.method == "POST" :
-        user_name= request.POST['user_name']
-        password1 = request.POST['password1']
-        
-        #Authentication 
-        
-        user = authenticate(request , username=user_name , password = password1)
-        
-        print(user)
 
-        if user is not None :
-            login(request , user)
-            return render(request , "Users/LoginAndRegPage/Homepage.html" )
+def custom_authentication(username, password):
+    try:
+        user = Person.objects.get(user_name=username)
+        if user.password1==password: 
+            return user  # User authenticated successfully
         else:
-            # Authentication failed, display an error message
-            error_message = "Invalid email or password. Please try again."
+            return None  # Incorrect password
+
+    except Person.DoesNotExist:
+        return None  # User does not exist
+
+def LoginView(request):
+    if request.method == "POST":
+        username =  request.POST['user_name']
+        password =  request.POST['password1']
+
+        user = custom_authentication(username, password)
+
+        if user is not None:
+            request.session['user_name']=user.user_name
+            return redirect('homepage')  # Redirect to the homepage or any desired page after login
+
+        else:
+            error_message = "Invalid username or password. Please try again."
             return render(request, "Users/LoginPage.html", {'error_message': error_message})
-    
-    return render(request , "Users/LoginPage.html" ) 
+
+    return render(request, "Users/LoginPage.html")
 
 
-# def HomepageView(request) :
-#     return render(request ,"LoginAndRegPage/Homepage.html")
+# def custom_logout(request):
+#     logout(request)
+#     # Redirect to a success page.
+#     return redirect('success_url_name')
+
+
+def HomepageView(request) :
+    return render(request ,"Users/Homepage.html")
