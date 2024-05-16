@@ -1,0 +1,157 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}Welcome To the Registration Page{% endblock title %}
+{% block css %}
+  <link rel="stylesheet" href="{%static 'Users/RegistrationPage.css'%}">
+{% endblock css %}
+
+{% block body %}
+
+<div class="navbar">
+    <div class="logo">
+        <img src="{%static 'Users/images/Logo.jpg' %}" alt="Logo">
+    </div>
+    <div class="h1Tag"><h1>Welcome To Your Family Tree! Stay Close And Stay Connected</h1></div>
+
+</div>
+<div class="main-container">
+
+<div class="main-body">
+    <div class="container" >
+                <div class="image-container" >
+                     <img src= "{%static 'Users/images/familyTree.jpg'%}" alt="Family-Tree">
+                </div>
+        </div>
+        <div class="container2">
+            <p class="success registration_successful"></p>
+            <div class="loginHeader">
+                <h2>Register</h2>
+                <p>Connect your account! Its free and takes only few minutes!!!</p>
+            </div>
+
+            <div class="form-container">
+        <form action=""  method="POST" >
+            {% csrf_token %}
+            <div class="fields-control">
+                <label for="first_name"> Enter Your First Name: </label>
+                <input type="text" name="first_name" id="first_name">
+                <span class="error_message" id="first_name_error">{{first_name_error}}</span>
+                
+            </div>
+            
+            <div class="fields-control">
+                <label for="last_name"> Enter Your Last Name: </label>
+                <input type="text" name="last_name" id="last_name">
+                <span class="error_message" id="last_name_error">{{last_name_error}}</span>
+               
+            </div>
+
+            <div class="fields-control">
+                <label for="user_name"> Enter Your User Name: </label>
+                <input type="text" name="user_name" id="user_name">
+                <span class="error_message" id="user_name_error">{{user_name_error}}</span>
+               
+            </div>
+            
+            <div class="fields-control">
+                <label for="email"> Enter Your Email:</label>
+                <input type="email" name="email" id="email">
+                <span class="error_message" id="email_error">{{email_error}}</span>
+                
+            </div>
+            
+            <div class="fields-control">
+                <label for="password1"> Enter Your Password:</label>
+                <input type="password" name="password1" id="password1">
+                <span class="error_message" id="password1_error">{{password1_error}}</span>
+                
+            </div>
+            
+            <div class="fields-control">
+                <label for="password2">Re-enter Your Password:</label>
+                <input type="password" name="password2" id="password2">
+                <span class="error_message" id="password2_error">{{password2_error}}</span>
+           </div>
+            
+            <div class="fields-control">
+                <label for="gender"> Select Your Gender:</label>
+                <select name="gender" id="gender">  
+                    <option value="male">Male</option>
+                    <option value="femmale">Female</option>
+                </select>
+            </div>
+
+
+            <div class="fields-control">
+              <label for="dob">Select Your Date of Birth:</label>
+            <input type="date" name="dateField" id="dateField" value="1800-01-01">
+            </div>
+
+            <div class="error_message" id="general_error">{{general_error}}</div>
+
+            <div class="button-class">
+                <button class="button" >Submit</button>
+            </div>
+</div>
+       
+    </form>
+
+    </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<script>
+    // JavaScript code to show/hide error messages
+    window.onload = function() {
+        var first_name_error = "{{ first_name_error }}"; // Retrieve the error message from Django template variable
+        var last_name_error = "{{ last_name_error }}";
+        var email_error = "{{ email_error }}";
+        var password1_error = "{{ password1_error }}";
+        var password2_error = "{{ password2_error }}";
+        var general_error = "{{ general_error }}";
+
+        console.log("First Name Error:", first_name_error);
+        console.log("Last Name Error:", last_name_error);
+        console.log("Email Error:", email_error);
+        console.log("Password1 Error:", password1_error);
+        console.log("Password2 Error:", password2_error);
+        console.log("General Error:", general_error);
+
+        if (first_name_error) {
+            console.log("Setting first name error message:", first_name_error);
+            document.getElementById("first_name_error").innerHTML = first_name_error;
+        }
+
+        if (last_name_error) {
+            console.log("Setting last name error message:", last_name_error);
+            document.getElementById("last_name_error").innerHTML = last_name_error;
+        }
+
+        if (email_error) {
+            console.log("Setting email error message:", email_error);
+            document.getElementById("email_error").innerHTML = email_error;
+        }
+
+        if (password1_error) {
+            console.log("Setting password1 error message:", password1_error);
+            document.getElementById("password1_error").innerHTML = password1_error;
+        }
+
+        if (password2_error) {
+            console.log("Setting password2 error message:", password2_error);
+            document.getElementById("password2_error").innerHTML = password2_error;
+        }
+
+        if (general_error) {
+            console.log("Setting general error message:", general_error);
+            document.getElementById("general_error").innerHTML = general_error;
+        }
+    }
+</script>
+
+
+{% endblock body %}

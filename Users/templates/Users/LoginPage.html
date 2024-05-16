@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}Welcome To the Login Page {%endblock title %}
+{% block css %}
+  <link rel="stylesheet" href="{%static 'Users/LoginPage.css'%}">
+{% endblock css %}
+
+{% block body %}
+
+<div class="navbar">
+    <div class="logo">
+        <img src="{%static 'Users/images/Logo.jpg' %}" alt="Logo">
+    </div>
+    <div class="h1Tag"><h1>Welcome To Your Family Tree! Stay Close And Stay Connected</h1></div>
+
+</div>
+<div class="main-container">
+
+<div class="main-body">
+    <div class="container" >
+                <div class="image-container" >
+                     <img src= "{%static 'Users/images/Login.jpg'%}" alt="Family">
+                </div>
+        </div>
+        <div class="container2">
+            <p class="success registration_successful"></p>
+            <div class="loginHeader">
+                <h2>Welcome Back To GENTREE!</h2>
+                <p>Login Below!!!</p>
+            </div>
+
+            <div class="form-container">
+        <form action="" method="POST" >
+            {% csrf_token %}
+            
+            <div class="fields-control">
+                <label for="user_name"> User Name:</label>
+                <input type="text" name="user_name" id="user_name" placeholder= "Enter Your User Name">
+                <span class="error_message" id="user_name_error"></span>
+                
+            </div>
+            
+            <div class="fields-control">
+                <label for="password1"> Password:</label>
+                <input type="password" name="password1" id="password1" placeholder = "Enter your password">
+                <span class="error_message" id="password1_error"></span>
+            </div>
+        
+            <div class="general_error" id="general_error"></div>
+
+            <div class="alterLink">
+
+                <a href="#">Forgot Your Password?</a>
+                <a href="{% url 'registration'  %}">Not a member yet? Sign In!</a>
+                
+            </div>
+
+    <div class="button-class">
+        <button class="button" >Login</button>
+    </div>
+
+</div>
+       
+    </form>
+
+    </div>
+   </div>
+    </div>
+
+</div>
+</div>
+
+<script>
+    // JavaScript code to show/hide error messages
+    window.onload = function() {
+        
+        var email_error = "{{ email_error }}";
+        var password1_error = "{{ password1_error }}";
+        var general_error = "{{ general_error }}";
+
+
+        if (email_error) {
+            document.getElementById("email_error").innerHTML = email_error;
+        }
+
+        if (password1_error) {
+            document.getElementById("password1_error").innerHTML = password1_error;
+        }
+
+        if (general_error) {
+            document.getElementById("general_error").innerHTML = general_error;
+        }
+    }
+</script>
+
+
+{% endblock body %}
