@@ -86,7 +86,7 @@ def LoginView(request):
 
         if user is not None:
             request.session['user_name']=user.user_name
-            return redirect('homepage')  # Redirect to the homepage or any desired page after login
+            return redirect('Site:homepageLoggedIn')  # Redirect to the homepage or any desired page after login
 
         else:
             error_message = "Invalid username or password. Please try again."

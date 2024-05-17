@@ -1,0 +1,558 @@
+html{
+ 
+    background: -webkit-linear-gradient(2405deg,#cdebf7 , #fefeff ,#fafafa);
+    font-family: 'Times New Roman', Times, serif;
+}
+body{
+    margin: 0;
+    padding: 0;
+
+}
+.main-container{
+    padding-top: 3rem;
+    padding-top: 3rem;
+    padding-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    height:max-content;
+}
+
+.navbar{
+    background:linear-gradient(#cdebf7 , #1cb0d1 ,#95a3a7);
+    position: fixed;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 5rem;
+    color: black;
+    z-index: 999999999999;
+}
+
+.navbar .logo img{
+    background:linear-gradient(#cdebf7 , #1cb0d1 ,#95a3a7);
+    width: 5rem;
+    height: 5rem;
+    margin: 2px 0 4px 0;
+    padding: 0 16px 0 0;
+}
+
+.navigation-button{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    padding: 0.625rem;
+    align-items: center;
+    border-radius: 20px;  
+}
+
+.navigation-button button{
+    font-size: 18px;
+    font-weight:20;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 8px;
+    width: 12.5%;
+    height: 50px;
+    border: none;
+    background-color: transparent;
+    letter-spacing: normal;
+
+}
+.navigation-button button:hover{
+
+    background-color:rgb(255, 255, 255);
+    cursor:pointer;
+    border-radius: 4px;
+    letter-spacing: 0.12rem;
+    text-decoration: underline;
+    color: #272527;
+
+}
+
+.button-class button{
+    width: max-content;
+    height: max-content;
+    letter-spacing: 0.1rem;
+    font-size: 18px;
+    font-weight:40;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-top: 10px;
+    padding: 16px 16px;
+    border: none;
+    border-radius: 10px;
+    background:linear-gradient(#cdebf7 , #6cddf7 ,#b5ced4);
+    transition: 1s;
+}
+.button-class button:hover{
+    letter-spacing: 0.15rem;
+}
+
+
+
+.button-class:hover {
+        border-bottom-width:0;
+        transform: translateZ(18px);
+        
+}
+
+.extraLinks{
+    display: flex;
+    flex-direction: row;
+    width: 30rem;
+    margin-left: 20rem;
+
+}
+
+.extraLinks .accountCreate-link{
+    display: flex;
+    margin-left:30% ;
+}
+
+.border{
+    height: 50px;
+    width: 50px;
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 2px 10px 2px;
+    
+
+}
+
+.border img{
+
+    height: 25px;
+    width: 25px;
+}
+
+.border:hover{
+    
+    border-radius: 50px;
+    background-color:rgb(255, 255, 255);
+    cursor: pointer;
+
+}
+
+.border-image-link{
+    border:2px #272527 solid ;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:10px ;
+    margin-left: 20px;
+    margin-right: 20px;
+
+
+}
+
+.border-image-link img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+
+}
+
+.accountCreate-link{
+    height: 50px;
+    width: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 8px;
+    margin-right: 8px;
+    border: 3px solid rgb(180, 180, 180);
+    font-weight:560;
+    border-radius: 10px;
+    letter-spacing: normal;
+}
+
+
+a{
+    text-decoration: none;
+    color: black;
+    font-size: large;
+}
+
+.border-link:hover{ 
+    background-color:rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.accountCreate-link:hover{ 
+    letter-spacing: .023em;
+    background-color:rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+
+
+.accountCreate-link a{
+    color: rgb(173, 34, 34);
+}
+
+
+.Overview{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 25rem;
+    width: 100%;
+
+}
+
+.imageContainer{
+
+    height: 25rem;
+    width: 70rem;
+}
+
+.imageContainer img{
+    height: 25rem;
+    width: 60rem;
+}
+
+.textContainer{
+    
+    width: max-content;
+    height: 25rem;
+    background:linear-gradient(145deg,#a1ca0f, #79a8ba,#a4bec9)
+}
+
+.textContainer p{
+    padding-top: 18%;
+    text-align: center;
+    font-size: medium;
+    font-weight: bold;
+    font-style: italic;
+    font-stretch: semi-expanded;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+    background: -webkit-linear-gradient(#8b02e6, #008f00,hsl(0, 0%, 0%)) ;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.headerCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stepsHeader{
+    display: inline-block;
+    text-align: center;
+    height: max-content;
+    width: max-content;
+}
+
+.stepsHeader h1{
+
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    font-size:3em;
+    font-weight: light;
+    margin: 10px 0 5px 0;
+}
+
+.stepsHeader h3{
+    margin: 5px 0 5px 0;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    font-size:1.35em;
+    font-weight: lighter ;
+    color: rgb(73, 67, 67);
+}
+
+.card1{
+    display: flex;
+    flex-direction: row;
+    height: max-content;
+    justify-content: center;
+    align-items: center;
+    width: 90rem;
+
+}
+
+.texCard1{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.textCardContainer1{
+    display: inline-block;
+    text-align:left;
+  
+}
+
+.textCardContainer1 h3{
+
+    margin: 0px 10px 0px 10px;
+}
+
+.textCardContainer1 p{
+   
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    font-size:1.12em;
+    font-weight: lighter ;
+    color: rgb(73, 67, 67);
+    margin: 0px 10px 0px 10px;
+}
+
+.card2{
+    display: flex;
+    flex-direction:row-reverse;
+    height: max-content;
+    justify-content: center;
+    align-items: center;
+    width: 90rem;
+}
+
+.texCard2{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-left: 10%;
+   
+}
+
+.card1 .imgCard1 img{
+    margin-left: 15rem;
+}
+.card2 .imgCard2 img{
+    margin-right: 10rem;
+}
+.card3 .imgCard3{
+    margin-left: 6rem;
+    margin-left: 10%;
+   
+}
+
+.card1 .imgCard1 img{
+    margin-left: 15rem;
+}
+.card2 .imgCard2 img{
+    margin-right: 10rem;
+}
+.card3 .imgCard3{
+    margin-left: 6rem;
+    margin-left: 10%;
+   
+}
+
+.card1 .imgCard1 img{
+    margin-left: 15rem;
+}
+.card2 .imgCard2 img{
+    margin-right: 10rem;
+}
+.card3 .imgCard3{
+    margin-left: 6rem;
+}
+
+.textCardContainer2{
+    display: inline-block;
+    text-align:left;
+    margin: 0 40px 0 10px;
+    margin: 0 40px 0 10px;
+    margin: 0 40px 0 10px;
+  
+}
+
+.textCardContainer2 h3{
+    margin: 0px 30px 0px 120px;
+    margin: 0px 30px 0px 120px;
+    margin: 0px 30px 0px 120px;
+    width: max-content;
+}
+
+.textCardContainer2 p{
+    display: inline-block;
+    text-wrap:pretty;
+    display: inline-block;
+    text-wrap:pretty;
+    display: inline-block;
+    text-wrap:pretty;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    font-size:1.12em;
+    font-weight: lighter ;
+    color: rgb(73, 67, 67);
+    margin: 0px 20px 0px 120px;
+    margin: 0px 20px 0px 120px;
+    margin: 0px 20px 0px 120px;
+    width: max-content; 
+}
+
+
+
+.card3{
+    display: flex;
+    flex-direction: row;
+    height: max-content;
+    justify-content: center;
+    align-items: center;
+    width: 90rem;
+
+}
+
+.texCard3{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.textCardContainer3{
+    display: inline-block;
+    text-align:left;
+  
+}
+
+.textCardContainer3 h3{
+
+    margin: 0px 10px 0px 10px;
+}
+
+.textCardContainer3 p{
+   
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    font-size:1.12em;
+    font-weight: lighter ;
+    color: rgb(73, 67, 67);
+    margin: 0px 10px 0px 10px;
+}
+
+.imgCard3 img{
+    margin-left:9em;
+    height: 25rem;
+    width: 25rem;
+
+}
+
+.imgCardInfo {
+    position: relative; 
+    display: inline-block;
+    width: 100%;
+}
+
+.imgCardInfo::before {
+    content: ''; 
+    position: absolute; 
+    width: 100%; 
+    height: 100%; 
+    background: linear-gradient(to right, rgba(10, 0, 10, 0), rgba(99, 82, 196, 1.9)); 
+}
+
+.imgCardInfo img {
+    width: 100%;
+    height: 30rem; 
+    opacity: 1.9; 
+}
+
+
+.imageCardInfoText {
+    position: absolute;
+    top: 0;
+    right: 10%;
+    padding: 20px; 
+    color: white; 
+    z-index: 1; 
+    padding: 20px; 
+    color: white; 
+    z-index: 1; 
+    padding: 20px; 
+    color: white; 
+    z-index: 1; 
+}
+
+.imageCardInfoText h1{
+ 
+
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    font-size:2em;
+    font-weight: light;
+    margin: 10px 0 5px 0;
+ 
+
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    font-size:2em;
+    font-weight: light;
+    margin: 10px 0 5px 0;
+ 
+
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    font-size:2em;
+    font-weight: light;
+    margin: 10px 0 5px 0;
+}
+
+.imageCardInfoText p{
+
+
+
+    width: 30rem;
+    margin: 2px 0 2px 0;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    font-size:1.2rem;
+    font-weight: lighter ;
+    color: rgb(233, 233, 233);
+}
+
+.section4 {
+    background: linear-gradient(1345deg,#fdfdfd, rgb(122, 183, 207) ,rgb(197, 145, 228) );
+}
+
+.section4 .h3Tag{
+    margin: 0px 12% 0px;
+}   
+
+.section4 .h3Tag h3{
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    font-size:1.5em;
+    font-weight: light;
+    margin: 0px 0 5px 0;
+}
+
+.section4 .p-tag {
+    width:39.59rem;
+    height: fit-content;
+    margin: 0px 12% 0px;
+    margin-top: 10px;
+}
+
+.section4 .p-tag p{
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    font-size:1.12em;
+    font-weight: lighter ;
+    background: -webkit-linear-gradient(#272527, hsl(263, 79%, 62%),hsl(300, 2%, 9%)) ;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0px 10px 0px 10px;
+}
+
+
+.stepsHeader p{
+    font-size:1.125em;
+}
+.stepsHeader a{
+    color: hsl(202, 51%, 49%);
+    text-transform: uppercase;  
+    font-size:0.95em;
+}
+
+.stepsHeader span:hover{
+    background: hsl(190, 58%, 82%);
+    width: 260px;
+    height: 120px;
+    border-radius: 2.5px;
+}
+
+.startTrial{
+    background: #f1eded;
+}
+
+ 
