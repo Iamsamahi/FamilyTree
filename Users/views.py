@@ -2,11 +2,11 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate , login 
+from django.contrib.auth import  login 
 from django.contrib.auth.hashers import check_password
 from django.contrib.sessions.models import Session 
 from .models import Person
-from django.views.decorators.csrf import csrf_protect
+
 
 
 # from .models import Registration
@@ -60,7 +60,7 @@ def RegistrationView(request):
             dob=dob
         )
         # Redirect to the login page after successful registration
-        return redirect("login")
+        return redirect("Users:login")
 
     return render(request, "Users/RegistrationPage.html")
 
@@ -76,6 +76,7 @@ def custom_authentication(username, password):
 
     except Person.DoesNotExist:
         return None  # User does not exist
+    
 
 def LoginView(request):
     if request.method == "POST":
@@ -93,13 +94,6 @@ def LoginView(request):
             return render(request, "Users/LoginPage.html", {'error_message': error_message})
 
     return render(request, "Users/LoginPage.html")
-
-
-# def custom_logout(request):
-#     logout(request)
-#     # Redirect to a success page.
-#     return redirect('success_url_name')
-
 
 def HomepageView(request) :
     return render(request ,"Users/Homepage.html")
