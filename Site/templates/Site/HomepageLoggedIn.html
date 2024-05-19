@@ -48,9 +48,18 @@
             </div>
 
             <div class="border-image-link" >
-                 <img src="{% static 'Site\images\avatar.jpg' %}" alt="">
+                {% if gender == 'male' %}
+                    <img src="{% static 'Site\images\avatarMale.jpg' %}" alt="Avatar">
+                {% elif gender == 'female' %}
+                    <img src="{% static 'Site\images\avatarFemale.jpg' %}" alt="Avatar">
+                {% endif %}
+                 
             </div>
-
+          
+            <div class="username"> 
+                <p>{{user}}</p>
+            </div>
+               
             <div class="accountCreate-link" >
                 <div class="notification">
               <a href="{% url "Site:custom_logout" %}">Log Out</a>

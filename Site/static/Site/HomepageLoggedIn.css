@@ -99,8 +99,8 @@ body{
 .extraLinks{
     display: flex;
     flex-direction: row;
-    width: 30rem;
-    margin-left: 20rem;
+    width: 50rem;
+    margin-right: 10rem;
 
 }
 
@@ -153,6 +153,19 @@ body{
     height: 50px;
     width: 50px;
     border-radius: 50%;
+
+}
+
+.username{  
+    margin-top: 14px;
+    margin-left: 10px;
+    height: fit-content;
+    width: fit-content;
+}
+
+.username p{
+    text-align: center;
+    font-weight:800;
 
 }
 
