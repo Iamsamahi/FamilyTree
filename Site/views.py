@@ -15,6 +15,14 @@ def HomepageLoggedInView(request) :
         "gender": user.gender
     })
 
+def ProfileView(request):  
+  user = Person.objects.get(user_name = request.session['user_name'])
+  return render(request ,"Site\Profile.html" , {
+        "user" : user.first_name +' '+ user.last_name,
+        "gender": user.gender
+    })
+
+
 
 def custom_logout(request):
     if 'user_name' in request.session:

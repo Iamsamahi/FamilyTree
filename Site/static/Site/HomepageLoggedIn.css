@@ -38,6 +38,7 @@ body{
 }
 
 .navigation-button{
+
     width: 50%;
     display: flex;
     flex-direction: row;
@@ -47,19 +48,21 @@ body{
     border-radius: 20px;  
 }
 
-.navigation-button button{
+.navigation-button .button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     font-size: 18px;
     font-weight:20;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    margin: 8px;
     width: 12.5%;
     height: 50px;
-    border: none;
     background-color: transparent;
     letter-spacing: normal;
 
 }
-.navigation-button button:hover{
+.navigation-button .button:hover{
 
     background-color:rgb(255, 255, 255);
     cursor:pointer;
@@ -67,34 +70,11 @@ body{
     letter-spacing: 0.12rem;
     text-decoration: underline;
     color: #272527;
+    text-align: center;
 
 }
 
-.button-class button{
-    width: max-content;
-    height: max-content;
-    letter-spacing: 0.1rem;
-    font-size: 18px;
-    font-weight:40;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    margin-top: 10px;
-    padding: 16px 16px;
-    border: none;
-    border-radius: 10px;
-    background:linear-gradient(#cdebf7 , #6cddf7 ,#b5ced4);
-    transition: 1s;
-}
-.button-class button:hover{
-    letter-spacing: 0.15rem;
-}
 
-
-
-.button-class:hover {
-        border-bottom-width:0;
-        transform: translateZ(18px);
-        
-}
 
 .extraLinks{
     display: flex;
@@ -193,7 +173,7 @@ a{
     font-size: large;
 }
 
-.border-link:hover{ 
+.border-image-link:hover{ 
     background-color:rgb(255, 255, 255);
     cursor: pointer;
 }

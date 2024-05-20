@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}Profile{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{%static 'Site/Navbar.css'%}">
+{% endblock css %} 
+
+{% block body %}
+<div class="navbar" >
+    <div class="logo">
+        <img src="{%static 'Site/images/Logo.jpg' %}" alt="Logo">
+    </div>
+            <div class="navigation-button">
+
+                                <div class="button"> OverView</div>
+
+                                <div class="button"> <a href="{% url 'Site:homepageLoggedIn' %}">Home</a> </div>
+
+                                <div class="button"> Tree</div>
+
+                                <div class="button"> Memories</div>
+
+                                <div class="button"> Activities</div>
+
+                                <div class="button"> Search</div>
+             </div>
+   
+    <div class="extraLinks">
+       
+            <div class="border">
+                <div class="notification">
+                    <img src="{% static 'Site/images/Bell.png' %}" alt="bell icon">
+                </div>
+            </div>
+            
+            <div class="border" >
+                <div class="notification">
+                 <img src="{% static 'Site/images/help.png' %}" alt="faq">
+               </div>
+            </div>
+
+            <div class="border-image-link" >
+                {% if gender == 'male' %}
+                    <a href="{% url 'Site:profile' %}"><img src="{% static 'Site\images\avatarMale.jpg' %}" alt="Avatar"></a>
+                {% elif gender == 'female' %}
+                    <a href="{% url 'Site:profile' %}" ><img src="{% static 'Site\images\avatarFemale.jpg' %}" alt="Avatar"></a>
+                  
+                {% endif %}
+                 
+            </div>
+          
+            <div class="username"> 
+                <p>{{user}}</p>
+            </div>
+               
+            <div class="accountCreate-link" >
+                <div class="notification">
+              <a href="{% url 'Site:custom_logout' %}">Log Out</a>
+              </div>
+           </div>
+           
+    </div>
+</div>
+
+<div class="main-container">
+        <div class="ImageField" style="height: 130px; width:30px; border:2px solid black;">
+
+         </div>
+
+</div>
+    
+
+
+
+
+{% endblock body %}

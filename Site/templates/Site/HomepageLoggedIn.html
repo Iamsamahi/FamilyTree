@@ -4,6 +4,7 @@
 {% block title %}Family Tree{% endblock title %}
 {% block css %}
   <link rel="stylesheet" href="{%static 'Site/HomePageLoggedIn.css'%}">
+  <link rel="stylesheet" href="{%static 'Site/Navbar.css'%}">
 {% endblock css %}
 
 {% block body %}
@@ -13,23 +14,18 @@
         <img src="{%static 'Site/images/Logo.jpg' %}" alt="Logo">
     </div>
     <div class="navigation-button">
-        
-                <button type="button">OverView</button>
+                <div class="button"> OverView</div>
+               
+                <div class="button"> <a href="{% url 'Site:homepageLoggedIn' %}">Home</a> </div>
+          
+                <div class="button"> Tree</div>
 
-
-                <button type="button">Home</button>
-    
+                <div class="button"> Memories</div>
         
-                <button type="button">Tree</button>
-        
-    
-                <button type="button">Memories</button>
-        
-        
-                <button type="button">Activities</button>
-        
-    
-                <button type="button">Search</button>
+                <div class="button"> Activities</div>
+             
+                <div class="button"> Search</div>
+ 
 
     </div>
    
@@ -49,9 +45,10 @@
 
             <div class="border-image-link" >
                 {% if gender == 'male' %}
-                    <img src="{% static 'Site\images\avatarMale.jpg' %}" alt="Avatar">
+                    <a href="{% url 'Site:profile' %}"><img src="{% static 'Site\images\avatarMale.jpg' %}" alt="Avatar"></a>
                 {% elif gender == 'female' %}
-                    <img src="{% static 'Site\images\avatarFemale.jpg' %}" alt="Avatar">
+                    <a href="{% url 'Site:profile' %}" ><img src="{% static 'Site\images\avatarFemale.jpg' %}" alt="Avatar"></a>
+                  
                 {% endif %}
                  
             </div>
@@ -62,7 +59,7 @@
                
             <div class="accountCreate-link" >
                 <div class="notification">
-              <a href="{% url "Site:custom_logout" %}">Log Out</a>
+              <a href="{% url 'Site:custom_logout' %}">Log Out</a>
               </div>
            </div>
            
@@ -112,7 +109,6 @@
             </div>
            
         </div>
-
   </div>
         <div class="card2">
             <div class="imgCard2">
@@ -172,4 +168,5 @@ The FamilySearch shared tree uniquely strives to have just one public profile fo
         </div>
       </div>
    </div>  
+
 {% endblock body %}

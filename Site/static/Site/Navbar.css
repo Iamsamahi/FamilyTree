@@ -1,0 +1,194 @@
+
+html{
+ 
+    background: -webkit-linear-gradient(2405deg,#cdebf7 , #fefeff ,#fafafa);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+
+}
+
+.main-container{
+    padding-top: 3rem;
+    padding-top: 3rem;
+    padding-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    height:max-content;
+}
+
+
+.navbar{
+    background:linear-gradient(#cdebf7 , #1cb0d1 ,#95a3a7);
+    position: fixed;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 5rem;
+    color: black;
+    z-index: 999999999999;
+}
+
+.navbar .logo img{
+    background:linear-gradient(#cdebf7 , #1cb0d1 ,#95a3a7);
+    width: 5rem;
+    height: 5rem;
+    margin: 2px 0 4px 0;
+    padding: 0 16px 0 0;
+}
+
+.navigation-button{
+
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    padding: 0.625rem;
+    align-items: center;
+    border-radius: 20px;  
+}
+
+.navigation-button .button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 18px;
+    font-weight:20;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: 12.5%;
+    height: 50px;
+    background-color: transparent;
+    letter-spacing: normal;
+
+}
+.navigation-button .button:hover{
+
+    background-color:rgb(255, 255, 255);
+    cursor:pointer;
+    border-radius: 4px;
+    letter-spacing: 0.12rem;
+    text-decoration: underline;
+    color: #272527;
+    text-align: center;
+
+}
+
+
+.extraLinks{
+    display: flex;
+    flex-direction: row;
+    width: 50rem;
+    margin-right: 10rem;
+
+}
+
+.extraLinks .accountCreate-link{
+    display: flex;
+    margin-left:30% ;
+}
+
+.border{
+    height: 50px;
+    width: 50px;
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 2px 10px 2px;
+    
+
+}
+
+.border img{
+
+    height: 25px;
+    width: 25px;
+}
+
+.border:hover{
+    
+    border-radius: 50px;
+    background-color:rgb(255, 255, 255);
+    cursor: pointer;
+
+}
+
+.border-image-link{
+    border:2px #272527 solid ;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:10px ;
+    margin-left: 20px;
+    margin-right: 20px;
+
+
+}
+
+.border-image-link img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+
+}
+
+.username{  
+    margin-top: 14px;
+    margin-left: 10px;
+    height: fit-content;
+    width: fit-content;
+}
+
+.username p{
+    text-align: center;
+    font-weight:800;
+
+}
+
+.accountCreate-link{
+    height: 50px;
+    width: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 8px;
+    margin-right: 8px;
+    border: 3px solid rgb(180, 180, 180);
+    font-weight:560;
+    border-radius: 10px;
+    letter-spacing: normal;
+}
+
+
+a{
+    text-decoration: none;
+    color: black;
+    font-size: large;
+}
+
+.border-image-link:hover{ 
+    background-color:rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.accountCreate-link:hover{ 
+    letter-spacing: .023em;
+    background-color:rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+
+
+.accountCreate-link a{
+    color: rgb(173, 34, 34);
+}
