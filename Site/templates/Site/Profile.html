@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}Profile{% endblock title %}
+{% block css %}
+  <link rel="stylesheet" href="{%static 'Site/HomePageLoggedIn.css'%}">
+{% endblock css %} 
+
+{% block body %}
+<div class="navbar" >
+    <div class="logo">
+        <img src="{%static 'Site/images/Logo.jpg' %}" alt="Logo">
+    </div>
+    <div class="navigation-button">
+        
+                <button type="button">OverView</button>
+
+
+                <button type="button">Home</button>
+    
+        
+                <button type="button">Tree</button>
+        
+    
+                <button type="button">Memories</button>
+        
+        
+                <button type="button">Activities</button>
+        
+    
+                <button type="button">Search</button>
+
+    </div>
+   
+    <div class="extraLinks">
+       
+            <div class="border">
+                <div class="notification">
+                    <img src="{% static 'Site/images/Bell.png' %}" alt="bell icon">
+                </div>
+            </div>
+            
+            <div class="border" >
+                <div class="notification">
+                 <img src="{% static 'Site/images/help.png' %}" alt="faq">
+               </div>
+            </div>
+
+            <div class="border-image-link" >
+                {% if gender == 'male' %}
+                    <a href="{% url 'Site:profile' %}"><img src="{% static 'Site\images\avatarMale.jpg' %}" alt="Avatar"></a>
+                {% elif gender == 'female' %}
+                    <a href="{% url 'Site:profile' %}" ><img src="{% static 'Site\images\avatarFemale.jpg' %}" alt="Avatar"></a>
+                  
+                {% endif %}
+                 
+            </div>
+          
+            <div class="username"> 
+                <p>{{user}}</p>
+            </div>
+               
+            <div class="accountCreate-link" >
+                <div class="notification">
+              <a href="{% url "Site:custom_logout" %}">Log Out</a>
+              </div>
+           </div>
+           
+    </div>
+</div>
+
+
+
+{% endblock body %}
