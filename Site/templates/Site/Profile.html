@@ -71,19 +71,25 @@
             {% csrf_token %}
             <div class="coverPhoto">
                 {% if not img_obj.cover_photo %}
-                    <div class="secondaryButton" onclick="document.getElementById('id_cover_photo').click();">Upload Cover Photo</div>
-                     <button type="submit">Upload</button>
+                    <div class="sc">
+                        <div class="secondaryButton" onclick="document.getElementById('id_cover_photo').click();">Upload Cover Photo</div>
+                        <button type="submit">Upload</button>
+                    </div>
                 {% elif img_obj.cover_photo %}
                     <img src="{{ img_obj.cover_photo.url }}">
                 {% endif %}
             </form>
                 <input id="id_cover_photo" type="file" name="cover_photo" style="display:none;">
-                <div class="button">
+               <button class="button">
                     <div class="png">
                         <img src="{% static 'Site/images/camera.png' %}" alt="Upload Icon">
                     </div>
-                    <div class="text"> Edit Cover Photo </div> 
-                </div>
+                    <div class="text" > Edit Cover Photo </div> 
+                    <div class="dropdown-content">
+                        <a href="#" class="update-option">Update</a>
+                        <a href="#" class="delete-option">Delete</a>
+                    </div>
+                </button>
          </div>
     </div>
 </div>
