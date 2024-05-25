@@ -4,7 +4,9 @@
 {% block title %}Profile{% endblock title %}
 {% block css %}
 <link rel="stylesheet" href="{%static 'Site/Navbar.css'%}">
+<link rel="stylesheet" href="{%static 'Site/Profile.css'%}"> 
 {% endblock css %} 
+
 
 {% block body %}
 <div class="navbar" >
@@ -13,9 +15,9 @@
     </div>
             <div class="navigation-button">
 
-                                <div class="button"> OverView</div>
+                                <div class="button"><a href="{% url 'Site:homepageLoggedIn' %}">Home </a></div>
 
-                                <div class="button"> <a href="{% url 'Site:homepageLoggedIn' %}">Home</a> </div>
+                                <div class="button"> <a href="{% url 'Site:profile' %}">Profile </a></div>
 
                                 <div class="button"> Tree</div>
 
@@ -64,10 +66,26 @@
 </div>
 
 <div class="main-container">
-        <div class="ImageField" style="height: 130px; width:30px; border:2px solid black;">
-
+    <div class="imageField-formContainer">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="coverPhoto">
+                {% if not img_obj.cover_photo %}
+                    <div class="secondaryButton" onclick="document.getElementById('id_cover_photo').click();">Upload Cover Photo</div>
+                     <button type="submit">Upload</button>
+                {% elif img_obj.cover_photo %}
+                    <img src="{{ img_obj.cover_photo.url }}">
+                {% endif %}
+            </form>
+                <input id="id_cover_photo" type="file" name="cover_photo" style="display:none;">
+                <div class="button">
+                    <div class="png">
+                        <img src="{% static 'Site/images/camera.png' %}" alt="Upload Icon">
+                    </div>
+                    <div class="text"> Edit Cover Photo </div> 
+                </div>
          </div>
-
+    </div>
 </div>
     
 
