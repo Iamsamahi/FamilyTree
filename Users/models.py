@@ -10,6 +10,8 @@ class Person(models.Model):
     gender = models.CharField(max_length=10)
     password1 = models.CharField(max_length=20)
     password2= models.CharField(max_length=20)
+    cover_photo = models.ImageField(upload_to="coverPhotos" , null =True)
+    profile_photo = models.ImageField(upload_to="profilePhotos" , null=True)
     
 
     def __str__(self):
