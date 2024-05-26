@@ -5,7 +5,9 @@
 {% block css %}
 <link rel="stylesheet" href="{%static 'Site/Navbar.css'%}">
 <link rel="stylesheet" href="{%static 'Site/Profile.css'%}"> 
+<link rel="stylesheet" href="{%static 'Site/Profile.css'%}"> 
 {% endblock css %} 
+
 
 
 {% block body %}
@@ -16,7 +18,9 @@
             <div class="navigation-button">
 
                                 <div class="button"><a href="{% url 'Site:homepageLoggedIn' %}">Home </a></div>
+                                <div class="button"><a href="{% url 'Site:homepageLoggedIn' %}">Home </a></div>
 
+                                <div class="button"> <a href="{% url 'Site:profile' %}">Profile </a></div>
                                 <div class="button"> <a href="{% url 'Site:profile' %}">Profile </a></div>
 
                                 <div class="button"> Tree</div>
@@ -91,6 +95,7 @@
                     </div>
                 </button>
          </div>
+    </div>
     </div>
 </div>
     

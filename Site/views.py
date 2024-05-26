@@ -35,6 +35,23 @@ def ProfileView(request):
         "gender": user.gender,
         "form": form,
         "img_obj": user
+        })
+def ProfileView(request):
+    user = Person.objects.get(user_name=request.session['user_name'])
+    
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('Site:profile')  # Assuming you have a URL named 'profile'
+    else:
+        form = ProfileForm(instance=user)
+
+    return render(request, "Site/Profile.html", {
+        "user": user.first_name + ' ' + user.last_name,
+        "gender": user.gender,
+        "form": form,
+        "img_obj": user
     })
 
 
