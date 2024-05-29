@@ -36,14 +36,15 @@ def ProfileView(request):
         "form": form,
         "img_obj": user
         })
-def ProfileView(request):
-    user = Person.objects.get(user_name=request.session['user_name'])
     
+def update_cover_photo(request):
+    user = Person.objects.get(user_name=request.session['user_name'])
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=user)
         if form.is_valid():
-            form.save()
-            return redirect('Site:profile')  # Assuming you have a URL named 'profile'
+            user.cover_photo = form.cleaned_data['cover_photo']
+            user.save()
+            return redirect('Site:profile')
     else:
         form = ProfileForm(instance=user)
 
@@ -53,7 +54,19 @@ def ProfileView(request):
         "form": form,
         "img_obj": user
     })
-
+    
+def delete_cover_photo(request):
+    if request.method == 'POST':
+        user = Person.objects.get(user_name=request.session['user_name'])
+        if user.cover_photo:
+            # Delete the file from the file system
+            os.remove(os.path.join(settings.MEDIA_ROOT, user.cover_photo.path))
+            # Clear the cover photo field in the database
+            user.cover_photo = None
+            user.save()
+            # Redirect to the profile page
+            return redirect('Site:profile')
+    return redirect('Site:profile')
 
 def custom_logout(request):
     if 'user_name' in request.session:

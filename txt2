@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{% static 'Site/Navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'Site/Profile.css' %}">
+</head>
+<body>
+    {% block body %}
+    <div class="navbar">
+        <!-- Navbar content -->
+    </div>
+
+    <div class="main-container">
+        <div class="imageField-formContainer">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="coverPhoto">
+                    {% if not img_obj.cover_photo %}
+                        <div class="sc">
+                            <div class="secondaryButton" onclick="document.getElementById('id_cover_photo').click();">Upload Cover Photo</div>
+                            <button type="submit">Upload</button>
+                        </div>
+                    {% elif img_obj.cover_photo %}
+                        <img src="{{ img_obj.cover_photo.url }}">
+                    {% endif %}
+                    <input id="id_cover_photo" type="file" name="cover_photo" style="display:none;">
+                </div>   
+            </form>
+            <div class="actionButton">
+                <div class="actionbutton1">
+                    <!-- Upload New Photo Form -->
+                    <form action="{% url 'Site:update_cover_photo' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <button type="button">Upload</button>
+                        <div class="dropdown-content">
+                            <input id="id_update_cover_photo" type="file" name="cover_photo">
+                            <button type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="actionbutton2">
+                    <div class="deleteButton">
+                        <!-- Delete Photo Form -->
+                        <form action="{% url 'Site:delete_cover_photo' %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="button2">Delete Photo</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock body %}
+</body>
+</html>

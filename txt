@@ -83,18 +83,20 @@
                 {% endif %}
                 <input id="id_cover_photo" type="file" name="cover_photo" style="display:none;">
 
-               <div class="actionButton">
-                    <div class="actionbutton1">
-                        <!-- Upload New Photo Form -->
+      
+              </div>   
+            </form>
+            <div class="actionButton" >
+                <div class="actionbutton1">   
+        <!-- Upload New Photo Form -->
                         <form action="{% url 'Site:update_cover_photo' %}" method="POST" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            <button type="button">Upload</button>
+                            {% csrf_token %} 
                             <div class="dropdown-content">
+                                <button type="submit">Upload</button>
                                 <input id="id_update_cover_photo" type="file" name="cover_photo">
-                                <button type="submit">Submit</button>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                        </form>  
                         <div class="actionbutton2">
                             <div class="deleteButton">
                              <!-- Delete Photo Form -->
@@ -105,9 +107,6 @@
                             </div>
                         </div>
                     </div>
-              </div>   
-            </form>
-       
                 </div>
                 </div>
 
