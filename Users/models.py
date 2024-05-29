@@ -2,8 +2,16 @@ from django.db import models
 import os
 
 def user_directory_path(instance, filename):
-    # File will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-    return f'{instance.user_name}/{filename}'
+    # Determine whether it's a cover photo or profile photo
+    if instance.cover_photo:
+        folder_name = 'coverphotos'
+    elif instance.profile_photo:
+        folder_name = 'profilephotos'
+    else:
+        folder_name = 'otherphotos'  # You can handle other types of photos as needed
+
+    # File will be uploaded to MEDIA_ROOT/user_<id>/<folder_name>/<filename>
+    return f'{instance.user_name}/{folder_name}/{filename}'
 
 class Person(models.Model):
     user_name = models.CharField(max_length=125, unique=True, primary_key=True)
