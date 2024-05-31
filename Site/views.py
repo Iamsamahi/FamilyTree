@@ -55,16 +55,14 @@ def update_cover_photo(request):
         "img_obj": user
     })
     
+
 def delete_cover_photo(request):
     if request.method == 'POST':
         user = Person.objects.get(user_name=request.session['user_name'])
         if user.cover_photo:
-            # Delete the file from the file system
             os.remove(os.path.join(settings.MEDIA_ROOT, user.cover_photo.path))
-            # Clear the cover photo field in the database
             user.cover_photo = None
             user.save()
-            # Redirect to the profile page
             return redirect('Site:profile')
     return redirect('Site:profile')
 

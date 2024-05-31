@@ -62,14 +62,12 @@
                 <div class="notification">
               <a href="{% url 'Site:custom_logout' %}">Log Out</a>
               </div>
-           </div>
-           
+           </div>           
     </div>
 </div>
 
-
-<div class="main-container">
-    <div class="imageField-formContainer">
+<div class="main-container" style="border:2px solid blue ">
+    <div class="imageField-formContainer" style="border: 2px solid yellow;">
         <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="coverPhoto">
@@ -105,12 +103,27 @@
                             </div>
                         </div>
                     </div>
+                    <div class="profileContainer">
+                        <div class="profilePhoto">
+                          <form action="" method="post" enctype="multipart/form-data">
+                              {% csrf_token %}
+                              {% if not img_obj.profile_photo %}
+                              <div class="sc">
+                                  <div class="secondaryButton" onclick="document.getElementById('id_profile_photo').click();">Upload Profile Photo</div>
+                                  <button type="submit">Upload</button>
+                              </div>
+                          {% elif img_obj.cover_photo %}
+                              <img src="{{ img_obj.profile_photo.url }}">
+                          {% endif %}
+                          <input id="id_profile_photo" type="file" name="profile_photo" style="display:none;"> 
+                          </form>
+                      </div>
+                  </div> 
               </div>   
-            </form>
-       
-                </div>
-                </div>
-
-    
+            </form>  
+          
+    </div>  
+ 
+</div>
 
 {% endblock body %}
