@@ -46,7 +46,7 @@
 
             <div class="border-image-link" >
                 {% if gender == 'male' %}
-                    <a href="{% url 'Site:profile' %}"><img src="{% static 'Site\images\avatarMale.jpg' %}" alt="Avatar"></a>
+                    <a href="{% url 'Site:profile' %}"><img src="{% static 'Site\images\avatarMale.svg' %}" alt="Avatar"></a>
                 {% elif gender == 'female' %}
                     <a href="{% url 'Site:profile' %}" ><img src="{% static 'Site\images\avatarFemale.jpg' %}" alt="Avatar"></a>
                   
@@ -79,7 +79,7 @@
                 {% elif img_obj.cover_photo %}
                     <img src="{{ img_obj.cover_photo.url }}">
                 {% endif %}
-                <input id="id_cover_photo" type="file" name="cover_photo" style="display:none;">
+                <input id="id_cover_photo" type="file" name="cover_photo" accept="image/*" style="display:none;">
 
                <div class="actionButton">
                     <div class="actionbutton1">
@@ -88,7 +88,7 @@
                             {% csrf_token %}
                             <button type="button">Upload</button>
                             <div class="dropdown-content">
-                                <input id="id_update_cover_photo" type="file" name="cover_photo">
+                                <input id="id_update_cover_photo" type="file" name="cover_photo" accept="image/*">
                                 <button type="submit">Submit</button>
                             </div>
                         </form>
@@ -105,21 +105,14 @@
                     </div>
                      <!-- Profile Photo Form -->
                     <div class="profileContainer">
-                        <div class="profilePhoto">
-                          <form action="{% url 'Site:update_profile_photo' %}" method="post" enctype="multipart/form-data">
-                              {% csrf_token %}
-                              {% if not img_obj.profile_photo %}
-                              <div class="sc">
-                                  <div class="secondaryButton" onclick="document.getElementById('id_update_profile_photo').click();">Upload Profile Photo</div>
-                                  <button type="submit">Upload</button>
-                              </div>
-                          {% elif img_obj.profile_photo%}
-                              <img src="{{img_obj.profile_photo.url}}">
-                          {% endif %}
-                          <input id="id_update_profile_photo" type="file" name="profile_photo" style="display:none;"> 
-                          </form>
-                      </div>
+                        {% if gender == 'male' %}
+                            <a href="{% url 'Site:profile' %}"><img src="{% static 'Site\images\avatarMale.svg' %}" alt="Avatar"></a>
+                        {% elif gender == 'female' %}
+                            <a href="{% url 'Site:profile' %}" ><img src="{% static 'Site\images\avatarFemale.jpg' %}" alt="Avatar"></a>
+                        {% endif %}
+                    
                   </div> 
+                
               </div>   
             </form>  
           
