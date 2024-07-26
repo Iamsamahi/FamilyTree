@@ -44,7 +44,9 @@
             </div>
 
             <div class="border-image-link" >
-                {% if gender == 'male' %}
+                {% if img_obj.profile_photo %}
+                <a href="{% url 'Site:profile' %}"><img src="{{ img_obj.profile_photo.url }}" id="photo" alt="Avatar"></a>
+                {% elif gender == 'male' %}
                     <a href="{% url 'Site:profile' %}"><img src="{% static 'Site\images\avatarMale.svg' %}" alt="Avatar"></a>
                 {% elif gender == 'female' %}
                     <a href="{% url 'Site:profile' %}" ><img src="{% static 'Site\images\avatarFemale.jpg' %}" alt="Avatar"></a>

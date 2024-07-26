@@ -3,66 +3,51 @@
 
 {% block title %}Profile{% endblock title %}
 {% block css %}
-<link rel="stylesheet" href="{%static 'Site/Navbar.css'%}">
-<link rel="stylesheet" href="{%static 'Site/Profile.css'%}"> 
-<link rel="stylesheet" href="{%static 'Site/Profile.css'%}"> 
-{% endblock css %} 
-
-
+<link rel="stylesheet" href="{% static 'Site/Navbar.css' %}">
+<link rel="stylesheet" href="{% static 'Site/Profile.css' %}">
+{% endblock css %}
 
 {% block body %}
-<div class="navbar" >
+<div class="navbar">
     <div class="logo">
-        <img src="{%static 'Site/images/Logo.jpg' %}" alt="Logo">
+        <img src="{% static 'Site/images/Logo.jpg' %}" alt="Logo">
     </div>
-            <div class="navigation-button">
-
-                                <div class="button"><a href="{% url 'Site:homepageLoggedIn' %}">Home </a></div>
-                        
-                                <div class="button"> <a href="{% url 'Site:profile' %}">Profile </a></div>
-
-                                <div class="button"> Tree</div>
-
-                                <div class="button"> Memories</div>
-
-                                <div class="button"> Activities</div>
-
-                                <div class="button"> Search</div>
-             </div>
-   
+    <div class="navigation-button">
+        <div class="button"><a href="{% url 'Site:homepageLoggedIn' %}">Home </a></div>
+        <div class="button"> <a href="{% url 'Site:profile' %}">Profile </a></div>
+        <div class="button"> Tree</div>
+        <div class="button"> Memories</div>
+        <div class="button"> Activities</div>
+        <div class="button"> Search</div>
+    </div>
     <div class="extraLinks">
-       
-            <div class="border">
-                <div class="notification">
-                    <img src="{% static 'Site/images/Bell.png' %}" alt="bell icon">
-                </div>
+        <div class="border">
+            <div class="notification">
+                <img src="{% static 'Site/images/Bell.png' %}" alt="bell icon">
             </div>
-            
-            <div class="border" >
-                <div class="notification">
-                 <img src="{% static 'Site/images/help.png' %}" alt="faq">
-               </div>
+        </div>
+        <div class="border">
+            <div class="notification">
+                <img src="{% static 'Site/images/help.png' %}" alt="faq">
             </div>
-
-            <div class="border-image-link" >
-                {% if gender == 'male' %}
-                    <a href="{% url 'Site:profile' %}"><img src="{% static 'Site\images\avatarMale.svg' %}" alt="Avatar"></a>
-                {% elif gender == 'female' %}
-                    <a href="{% url 'Site:profile' %}" ><img src="{% static 'Site\images\avatarFemale.jpg' %}" alt="Avatar"></a>
-                  
-                {% endif %}
-                 
+        </div>
+        <div class="border-image-link" >
+            {% if img_obj.profile_photo %}
+            <a href="{% url 'Site:profile' %}"><img src="{{ img_obj.profile_photo.url }}" id="photo" alt="Avatar"></a>
+            {% elif gender == 'male' %}
+                <a href="{% url 'Site:profile' %}"><img src="{% static 'Site\images\avatarMale.svg' %}" alt="Avatar"></a>
+            {% elif gender == 'female' %}
+                <a href="{% url 'Site:profile' %}" ><img src="{% static 'Site\images\avatarFemale.jpg' %}" alt="Avatar"></a>  
+            {% endif %}   
+        </div>
+        <div class="username">
+            <p>{{ user }}</p>
+        </div>
+        <div class="accountCreate-link">
+            <div class="notification">
+                <a href="{% url 'Site:custom_logout' %}">Log Out</a>
             </div>
-          
-            <div class="username"> 
-                <p>{{user}}</p>
-            </div>
-               
-            <div class="accountCreate-link" >
-                <div class="notification">
-              <a href="{% url 'Site:custom_logout' %}">Log Out</a>
-              </div>
-           </div>           
+        </div>
     </div>
 </div>
 
@@ -80,8 +65,7 @@
                     <img src="{{ img_obj.cover_photo.url }}">
                 {% endif %}
                 <input id="id_cover_photo" type="file" name="cover_photo" accept="image/*" style="display:none;">
-
-               <div class="actionButton">
+                <div class="actionButton">
                     <div class="actionbutton1">
                         <!-- Upload New Photo Form -->
                         <form action="{% url 'Site:update_cover_photo' %}" method="POST" enctype="multipart/form-data">
@@ -93,31 +77,35 @@
                             </div>
                         </form>
                     </div>
-                        <div class="actionbutton2">
-                            <div class="deleteButton">
-                             <!-- Delete Photo Form -->
-                                    <form action="{% url 'Site:delete_cover_photo' %}" method="POST">
-                                        {% csrf_token %}
-                                        <button type="submit" class="button2">Delete Photo</button>
-                                    </form>
-                            </div>
+                    <div class="actionbutton2">
+                        <div class="deleteButton">
+                            <!-- Delete Photo Form -->
+                            <form action="{% url 'Site:delete_cover_photo' %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="button2">Delete Photo</button>
+                            </form>
                         </div>
                     </div>
-                     <!-- Profile Photo Form -->
-                    <div class="profileContainer">
-                        {% if gender == 'male' %}
-                            <a href="{% url 'Site:profile' %}"><img src="{% static 'Site\images\avatarMale.svg' %}" alt="Avatar"></a>
+                </div>
+                <!-- Profile Photo Form -->
+                <div class="profileContainer">
+                    <form id="profileForm" action="{% url 'Site:update_profile_photo' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% if img_obj.profile_photo %}
+                            <a href="{% url 'Site:profile' %}"><img src="{{ img_obj.profile_photo.url }}" id="photo" alt="Avatar"></a>
+                        {% elif gender == 'male' %}
+                            <a href="{% url 'Site:profile' %}"><img src="{% static 'Site/images/avatarMale.svg' %}" id="photo" alt="Avatar"></a>
                         {% elif gender == 'female' %}
-                            <a href="{% url 'Site:profile' %}" ><img src="{% static 'Site\images\avatarFemale.jpg' %}" alt="Avatar"></a>
+                            <a href="{% url 'Site:profile' %}"><img src="{% static 'Site/images/avatarFemale.jpg' %}" id="photo" alt="Avatar"></a>
                         {% endif %}
-                    
-                  </div> 
-                
-              </div>   
-            </form>  
-          
-    </div>  
- 
+                        <input type="file" id="file" name="profile_photo" accept="image/*"> 
+                        <label for="file" id="uploadBtn">Choose Photo</label>
+                    </form>
+                </div>
+            </div>
+        </form>
+    </div>
+   
 </div>
-
+<script src="{% static 'Site/code.js' %}"></script>
 {% endblock body %}
